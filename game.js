@@ -1,5 +1,5 @@
 const images = [
-  "nukani08.jpg",
+  "nukani07.jpg",
   "group.jpg",
   "vithiya.jpg",
   "thisa.jpg",
