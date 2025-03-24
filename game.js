@@ -4,7 +4,7 @@ const images = [
   "vithiya.jpg",
   "thisa.jpg",
   "kiruthika.jpg",
-  "nukani03.jpg",
+  "salini.jpg",
 ];
 let cards = images.concat(images); // double up for pairs
 let shuffled = cards.sort(() => 0.5 - Math.random());
