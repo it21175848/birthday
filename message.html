@@ -78,28 +78,52 @@
   <body>
     <section class="section">
       <h2>💌 A Message for You</h2>
-      <input type="text" id="nameInput" placeholder="Enter your name..." />
+
+      <label
+        for="nameInput"
+        style="font-size: 1rem; color: #555; margin-bottom: 8px; display: block"
+      >
+        ✍️ Enter your name:
+      </label>
+      <input
+        type="text"
+        id="nameInput"
+        placeholder="Enter your name here..."
+        value="Nukanitha"
+      />
       <button onclick="displayMessage()">Show Message</button>
 
       <div id="messageArea" style="margin-top: 20px; display: none">
         <p id="personalMessage"></p>
-        <p>- With love, [Your Name]</p>
+        <p id="fromMessage"></p>
         <a href="index.html"><button>Back to Home</button></a>
       </div>
     </section>
 
     <script>
       function displayMessage() {
-        const name = document.getElementById("nameInput").value.trim();
+        const inputElement = document.getElementById("nameInput");
+        const inputName = inputElement.value.trim();
+        const name = inputName || "Friend";
         const messageArea = document.getElementById("messageArea");
         const personalMessage = document.getElementById("personalMessage");
+        const fromMessage = document.getElementById("fromMessage");
 
-        if (name) {
-          personalMessage.innerHTML = `Thank you for being such an amazing friend, <strong>${name}</strong>! Hope you loved this surprise!`;
-          messageArea.style.display = "block";
+        // Special message for Nukanitha
+        if (name.toLowerCase() === "nukanitha") {
+          personalMessage.innerHTML = `🎂 Happy Birthday, <strong>${name}</strong>! You're the most amazing, kind-hearted, and beautiful soul. I'm so lucky to have you in my life. 💖`;
+          fromMessage.innerHTML = "- With endless love, Your Friend 🌟";
         } else {
-          alert("Please enter a name to show the message.");
+          personalMessage.innerHTML = `Thank you for being such an amazing friend, <strong>${name}</strong>! Hope you loved this surprise!`;
+          fromMessage.innerHTML = `- With love, ${name}`;
         }
+
+        // Clear input box and hide it after showing the message
+        inputElement.value = "";
+        inputElement.style.display = "none";
+        document.querySelector("label[for='nameInput']").style.display = "none";
+
+        messageArea.style.display = "block";
       }
     </script>
   </body>
