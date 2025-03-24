@@ -1,9 +1,9 @@
 const images = [
-  "nukani07.jpg",
+  "nukani09.jpg",
   "group.jpg",
-  "thanu.jpg",
+  "vithiya.jpg",
   "thisa.jpg",
-  "sweet.jpg",
+  "kiruthika.jpg",
   "nukani03.jpg",
 ];
 let cards = images.concat(images); // double up for pairs

@@ -3,18 +3,104 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Message</title>
+    <title>Special Message</title>
     <link rel="stylesheet" href="css/style.css" />
+    <style>
+      body {
+        margin: 0;
+        font-family: "Segoe UI", sans-serif;
+        background: linear-gradient(to right, #ffd3a5, #fd6585);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+      }
+
+      .section {
+        background-color: white;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        animation: fadeIn 1.5s ease;
+      }
+
+      h2 {
+        font-size: 2.5rem;
+        color: #ff4081;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 1.2rem;
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      input {
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+        width: 80%;
+        max-width: 300px;
+        font-size: 16px;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background: #ff69b4;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        margin-top: 15px;
+        transition: background 0.3s;
+      }
+
+      button:hover {
+        background: #ff1493;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
   </head>
   <body>
     <section class="section">
       <h2>💌 A Message for You</h2>
-      <p>
-        Thank you for being such an amazing friend. Hope you loved this
-        surprise!
-      </p>
-      <p>- With love, [Your Name]</p>
-      <a href="index.html"><button>Back to Home</button></a>
+      <input type="text" id="nameInput" placeholder="Enter your name..." />
+      <button onclick="displayMessage()">Show Message</button>
+
+      <div id="messageArea" style="margin-top: 20px; display: none">
+        <p id="personalMessage"></p>
+        <p>- With love, [Your Name]</p>
+        <a href="index.html"><button>Back to Home</button></a>
+      </div>
     </section>
+
+    <script>
+      function displayMessage() {
+        const name = document.getElementById("nameInput").value.trim();
+        const messageArea = document.getElementById("messageArea");
+        const personalMessage = document.getElementById("personalMessage");
+
+        if (name) {
+          personalMessage.innerHTML = `Thank you for being such an amazing friend, <strong>${name}</strong>! Hope you loved this surprise!`;
+          messageArea.style.display = "block";
+        } else {
+          alert("Please enter a name to show the message.");
+        }
+      }
+    </script>
   </body>
 </html>
